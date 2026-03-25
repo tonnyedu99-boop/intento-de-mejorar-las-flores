@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flores Amarillas 💛</title>
+
+<style>
+:root {
+  --letter-love: 250px;
+  --letter: #ffe4e1;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(to top, #ff9a9e, #fad0c4);
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* Carta central */
+.Flores_Amarillas {
+  position: absolute;
+  width: 80%;
+  max-width: 400px;
+  font-size: 1.5rem;
+  height: var(--letter-love);
+  transform: translate(-50%, -50%);
+  background: var(--letter);
+  left: 50%;
+  top: 50%;
+  border-radius: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Texto */
+.texto {
+  padding: 20px;
+}
+
+/* Flores animadas */
+.flor {
+  position: absolute;
+  font-size: 2rem;
+  animation: subir 6s linear infinite;
+}
+
+@keyframes subir {
+  0% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Carta -->
+<div class="Flores_Amarillas">
+  <div class="texto">
+    🌼 Para ti 💛 <br>
+    Con mucho cariño ✨
+  </div>
+</div>
+
+<!-- Flores animadas -->
+<script>
+function crearFlor() {
+  const flor = document.createElement("div");
+  flor.classList.add("flor");
+  flor.innerHTML = "🌼";
+
+  flor.style.left = Math.random() * 100 + "vw";
+  flor.style.animationDuration = (Math.random() * 3 + 3) + "s";
+
+  document.body.appendChild(flor);
+
+  setTimeout(() => {
+    flor.remove();
+  }, 6000);
+}
+
+setInterval(crearFlor, 300);
+</script>
+
+</body>
+</html>
